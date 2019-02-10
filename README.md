@@ -17,7 +17,7 @@ Vous pouvez aussi écrire :
 
     python convertisseur_markdown_html.py -i <chemin du dossier contenant le(s) fichier(s) markdown à convertir> -o <chemin du dossier où seront placés les fichiers convertit>
 
-Vous ne conaissez pas le chemin de vos dossier ? Pour le connaitre il suffit d'aller dans votre dossier puis de cliquer dans la barre des dossier au dessus:
+Vous ne conaissez pas le chemin de vos dossier ? Pour le connaitre il suffit d'aller dans votre dossier auquel vous souhaiter connaître le chemin puis de cliquer dans la barre des dossier au dessus:
 
 ![alt text](https://github.com/MathieuCaselles/markdown_to_html/blob/master/screen_tuto/2.png)  
 
