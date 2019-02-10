@@ -36,14 +36,14 @@ fin_html = "\n\n</body>\n\n</html>"
 
 # Gestion des fichier dans dossier
 
-for dossier in dossier_1:
+for fichier_a_convertir in dossier_1:
 
-    if dossier.endswith('.md'):
+    if fichier_a_convertir.endswith('.md'):
 
-        with open("conversion/" + dossier, "r") as fichier:
+        with open("conversion/" + fichier_a_convertir, "r") as fichier:
             mon_fichier = fichier.read()
         
-        nouveau_nom = dossier.replace('.md', '')
+        nouveau_nom = fichier_a_convertir.replace('.md', '')
 
         with open(dossier_2 + "/" + nouveau_nom + ".html", "x") as fichier:
             fichier.write(debut_html)
