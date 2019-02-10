@@ -1,6 +1,6 @@
-# READ ME
+# Convertisseur de fichiers markdown en fichier html  
 
-Ce programme permet de convertir des fichier markdown en fichier html.  
+Ce programme permet de convertir des fichiers markdown en fichiers html.  
 
 ## Comment l'utiliser ?
 
