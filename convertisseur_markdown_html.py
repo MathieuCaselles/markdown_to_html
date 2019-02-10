@@ -38,15 +38,17 @@ fin_html = "\n\n</body>\n\n</html>"
 
 for dossier in dossier_1:
 
-    with open("conversion/" + dossier, "r") as fichier:
-        mon_fichier = fichier.read()
-    
-    nouveau_nom = dossier.replace('.md', '')
+    if dossier.endswith('.md'):
 
-    with open(dossier_2 + "/" + nouveau_nom + ".html", "x") as fichier:
-        fichier.write(debut_html)
-        fichier.write(markdown2.markdown(mon_fichier)) # markdown2.markdown() fait la conversion ausomatiquement ! C'est super tchité !
-        fichier.write(fin_html)
+        with open("conversion/" + dossier, "r") as fichier:
+            mon_fichier = fichier.read()
+        
+        nouveau_nom = dossier.replace('.md', '')
+
+        with open(dossier_2 + "/" + nouveau_nom + ".html", "x") as fichier:
+            fichier.write(debut_html)
+            fichier.write(markdown2.markdown(mon_fichier)) # markdown2.markdown() fait la conversion ausomatiquement ! C'est super tchité !
+            fichier.write(fin_html)
 
 print("Conversion réussis !")
 
