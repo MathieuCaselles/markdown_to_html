@@ -18,13 +18,14 @@ parser.add_argument(
     type=str
 )
 
+
 arg = parser.parse_args()
 
 if arg.input_directory == None or arg.output_directory == None:
     print("IL vous manque quelque chose: Utilisez «python convertisseur_markdown_html.py -h» ou sinon vous pouvez aussi vous référer au readme")
 
 else:
-    dossier_1 = arg.input_directory
+    dossier_1 = os.listdir(arg.input_directory)
 
     dossier_2 = arg.output_directory
 
@@ -35,19 +36,17 @@ fin_html = "\n\n</body>\n\n</html>"
 
 # Gestion des fichier dans dossier
 
-with open(dossier_1, "r") as fichier:
-    mon_fichier = fichier.read()
+for dossier in dossier_1:
 
-with open(dossier_2, "x") as fichier:
-    fichier.write(debut_html)
-    fichier.write(markdown2.markdown(mon_fichier)) # markdown2.markdown() fait la conversion ausomatiquement ! C'est super tchité !
-    fichier.write(fin_html)
+    with open("conversion/" + dossier, "r") as fichier:
+        mon_fichier = fichier.read()
+    
+    nouveau_nom = dossier.replace('.md', '')
 
-with open(dossier_2, "r") as fichier:
-    mon_fichier = fichier.read()
+    with open(dossier_2 + "/" + nouveau_nom + ".html", "x") as fichier:
+        fichier.write(debut_html)
+        fichier.write(markdown2.markdown(mon_fichier)) # markdown2.markdown() fait la conversion ausomatiquement ! C'est super tchité !
+        fichier.write(fin_html)
 
 print("Conversion réussis !")
-
-# conversion
-
 
