@@ -13,4 +13,3 @@
 Ceci est un texte _dont_ certains __éléments__ sont formatés **pour _être_** en *italique* ou en **bold**.  
 
 D'ailleur cette phrase a été trouvé sur ce lien ! <https://blog.wax-o.com/2014/04/tutoriel-un-guide-pour-bien-commencer-avec-markdown/>
-

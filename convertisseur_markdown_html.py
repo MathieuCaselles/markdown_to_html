@@ -15,7 +15,13 @@ parser.add_argument(
     "-o", 
     "--output-directory", 
     help="Le dossier de destination", 
-    type=str
+    type=str,
+)
+parser.add_argument(
+    "-a",
+    "--achtung",
+    help = "Activer l'option permet de rendre le texte plus compréhensible aux allemands",
+    action = "store_true"
 )
 
 
@@ -34,6 +40,43 @@ else:
 debut_html = "<!DOCTYPE html>\n\n<html>\n\n<head>\n\n\t<meta charset='utf-8'/>\n\t<title>"+ "Fichier convertit" +"</title>\n\n</head>\n\n<body>\n\n"
 fin_html = "\n\n</body>\n\n</html>"
 
+# achtung
+
+def achtung(texte):
+
+    texte = texte.replace('s', 'z')
+    texte = texte.replace('co', 'ko')
+    texte = texte.replace('ca', 'ka')
+    texte = texte.replace('cu', 'ku')
+    texte = texte.replace('cc', 'k')
+    texte = texte.replace('c ', 'k ')
+    texte = texte.replace('c', 'z')
+    texte = texte.replace('qu', 'k')
+    texte = texte.replace('ph', 'f')
+    texte = texte.replace('zz', 'z')
+    texte = texte.replace('mm', 'm')
+    texte = texte.replace('nn', 'n')
+    texte = texte.replace('tt', 't')
+    texte = texte.replace('rr', 'r')
+    texte = texte.replace('co', 'ko')
+    texte = texte.replace('ff', 'f')
+    texte = texte.replace('ll', 'l')
+    texte = texte.replace('pp', 'p')
+    texte = texte.replace('bb', 'b')
+    texte = texte.replace('dd', 'd')
+    texte = texte.replace('gg', 'g')
+    texte = texte.replace('kk', 'k')
+    texte = texte.replace('ge', 'che')
+    texte = texte.replace('gi', 'chi')
+    texte = texte.replace('co', 'ko')
+    texte = texte.replace('g', 'k')
+    texte = texte.replace('b', 'p')
+    texte = texte.replace('v', 'f')
+    texte = texte.replace('zh', 'ch')
+    texte = texte.replace('e ', ' ')
+
+    return texte
+
 # Gestion des fichier dans dossier
 
 for fichier_a_convertir in dossier_1:
@@ -44,10 +87,12 @@ for fichier_a_convertir in dossier_1:
             mon_fichier = fichier.read()
         
         nouveau_nom = fichier_a_convertir.replace('.md', '')
+        if arg.achtung:
+            mon_fichier = achtung(mon_fichier)
 
         with open(dossier_2 + "/" + nouveau_nom + ".html", "x") as fichier:
             fichier.write(debut_html)
-            fichier.write(markdown2.markdown(mon_fichier)) # markdown2.markdown() fait la conversion ausomatiquement ! C'est super tchité !
+            fichier.write(markdown2.markdown(mon_fichier)) # markdown2.markdown() fait la conversion automatiquement ! C'est super tchité !
             fichier.write(fin_html)
 
 print("Conversion réussis !")
